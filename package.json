@@ -1,5 +1,5 @@
 {
-  "name": "material-file-icons",
+  "name": "vscode-material-icons",
   "version": "0.0.1",
   "license": "MIT",
   "description": "VSCode Material Icons wrapper for applications",
@@ -13,11 +13,11 @@
   "author": "Matěj Chalk <matejchalk@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/matejchalk/material-file-icons.git"
+    "url": "git+ssh://git@github.com/matejchalk/vscode-material-icons.git"
   },
-  "homepage": "https://github.com/matejchalk/material-file-icons#readme",
+  "homepage": "https://github.com/matejchalk/vscode-material-icons#readme",
   "bugs": {
-    "url": "https://github.com/matejchalk/material-file-icons/issues"
+    "url": "https://github.com/matejchalk/vscode-material-icons/issues"
   },
   "type": "module",
   "files": [
