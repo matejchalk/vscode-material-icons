@@ -1,3 +1,3 @@
-export function sayHello(name: string) {
-  return `Hello, ${name}!`;
-}
+export * from './constants';
+export * from './functions';
+export * from './types';
