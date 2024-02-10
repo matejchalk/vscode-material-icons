@@ -21,9 +21,9 @@
   },
   "type": "module",
   "files": [
-    "dist/"
+    "dist/",
+    "generated/"
   ],
-  "bin": "dist/bin.js",
   "types": "dist/index.d.ts",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
