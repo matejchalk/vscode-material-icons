@@ -39,9 +39,13 @@
     "prepublishOnly": "npm run build",
     "build": "tsup",
     "test": "vitest run",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "fetch-icons": "node scripts/fetch-icons.js"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "fs-extra": "^11.2.0",
+    "simple-git": "^3.22.0",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3",
     "vitest": "^1.2.2"
