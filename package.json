@@ -40,11 +40,13 @@
     "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest watch",
-    "fetch-icons": "node scripts/fetch-icons.js"
+    "fetch-icons": "node scripts/fetch-icons.js",
+    "release": "release-it"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "fs-extra": "^11.2.0",
+    "release-it": "^17.0.3",
     "simple-git": "^3.22.0",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3",
