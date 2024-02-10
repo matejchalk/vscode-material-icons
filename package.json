@@ -1,0 +1,49 @@
+{
+  "name": "material-file-icons",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "VSCode Material Icons wrapper for applications",
+  "keywords": [
+    "icons",
+    "material-icons",
+    "file-icons",
+    "folder-icons",
+    "vscode"
+  ],
+  "author": "Matěj Chalk <matejchalk@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/matejchalk/material-file-icons.git"
+  },
+  "homepage": "https://github.com/matejchalk/material-file-icons#readme",
+  "bugs": {
+    "url": "https://github.com/matejchalk/material-file-icons/issues"
+  },
+  "type": "module",
+  "files": [
+    "dist/"
+  ],
+  "bin": "dist/bin.js",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2"
+  }
+}
