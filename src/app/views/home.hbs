@@ -1,1 +1,14 @@
-<h1>Hello, world</h1>
+<div class='grid'>
+  {{#each icons}}
+    <article class='cell'>
+      <img
+        src='/icons/{{this}}.svg'
+        alt='{{this}}.svg'
+        width='64'
+        height='64'
+        loading='lazy'
+      />
+      <small class='name'>{{this}}</small>
+    </article>
+  {{/each}}
+</div>
