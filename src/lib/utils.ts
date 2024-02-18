@@ -1,4 +1,4 @@
-import iconMap from '../generated/icon-map.json';
+import iconMap from '../../generated/icon-map.json';
 import type {
   FileExtensionsKey,
   FileNamesKey,

@@ -1,4 +1,4 @@
-import type iconMap from '../generated/icon-map.json';
+import type iconMap from '../../generated/icon-map.json';
 
 export type IconDefinitionsKey = keyof (typeof iconMap)['iconDefinitions'];
 export type FileNamesKey = keyof (typeof iconMap)['fileNames'];
