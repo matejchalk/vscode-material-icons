@@ -37,3 +37,12 @@ function getFileExtension(fileName: string): string {
 function getFileSuffix(fileName: string): FileExtensionsKey {
   return fileName.slice(fileName.indexOf('.') + 1) as FileExtensionsKey;
 }
+
+export function findKeysByValue(
+  needle: string,
+  haystack: Record<string, string>
+): string[] {
+  return Object.entries(haystack)
+    .filter(([, value]) => value === needle)
+    .map(([key]) => key);
+}

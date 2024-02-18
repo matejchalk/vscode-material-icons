@@ -1,5 +1,5 @@
-import { getIconForFilePath } from './functions';
-import type { MaterialIcon } from './types';
+import { getIconForFilePath, getIconInfo } from './functions';
+import type { MaterialIcon, MaterialIconInfo } from './types';
 
 describe('getIconForFilePath', () => {
   it.each<{ path: string; icon: MaterialIcon }>([
@@ -24,5 +24,64 @@ describe('getIconForFilePath', () => {
     { path: 'Startup.cs', icon: 'csharp' },
   ])('should pick $icon icon for path $path', ({ path, icon }) => {
     expect(getIconForFilePath(path)).toBe(icon);
+  });
+});
+
+describe('getIconInfo', () => {
+  it('should find icon file extensions', () => {
+    expect(getIconInfo('css')).toEqual<MaterialIconInfo>({
+      name: 'css',
+      fileExtensions: ['css'],
+    });
+  });
+
+  // FIXME: handle TypeScript, JavaScript and HTML
+  it.fails('should find icon file extensions for built-in language', () => {
+    expect(getIconInfo('typescript')).toEqual<MaterialIconInfo>({
+      name: 'typescript',
+      fileExtensions: ['ts'],
+    });
+  });
+
+  it('should find icon file names', () => {
+    expect(getIconInfo('nodejs')).toEqual<MaterialIconInfo>({
+      name: 'nodejs',
+      fileNames: expect.arrayContaining([
+        'package.json',
+        'package-lock.json',
+        '.nvmrc',
+      ]),
+    });
+  });
+
+  it('should find icon file names and extensions', () => {
+    expect(getIconInfo('docker')).toEqual<MaterialIconInfo>({
+      name: 'docker',
+      fileNames: expect.arrayContaining([
+        'dockerfile',
+        'dockerfile.prod',
+        'docker-compose.yml',
+        'docker-compose.yaml',
+      ]),
+      fileExtensions: expect.arrayContaining(['dockerignore']),
+    });
+  });
+
+  it('should find icon folder name', () => {
+    expect(getIconInfo('folder-docs')).toEqual<MaterialIconInfo>({
+      name: 'folder-docs',
+      folderNames: expect.arrayContaining(['docs', 'articles']),
+    });
+  });
+
+  it('should find icon folder name expanded', () => {
+    expect(getIconInfo('folder-images-open')).toEqual<MaterialIconInfo>({
+      name: 'folder-images-open',
+      folderNamesExpanded: expect.arrayContaining([
+        'images',
+        'icons',
+        'photos',
+      ]),
+    });
   });
 });
