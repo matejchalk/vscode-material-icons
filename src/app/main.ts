@@ -2,7 +2,8 @@ import express from 'express';
 import { engine } from 'express-handlebars';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { MATERIAL_ICONS } from '../lib';
+import { parseQueryParams } from './utils/parse';
+import { searchIcons } from './utils/search';
 
 const dirname = fileURLToPath(path.dirname(import.meta.url));
 
@@ -16,7 +17,8 @@ app.set('view engine', '.hbs');
 app.set('views', path.join(dirname, 'views'));
 
 app.get('/', (req, res) => {
-  res.render('home', { icons: MATERIAL_ICONS });
+  const { q } = parseQueryParams(req.query);
+  res.render('home', { icons: searchIcons(q) });
 });
 
 const port = 3000;
