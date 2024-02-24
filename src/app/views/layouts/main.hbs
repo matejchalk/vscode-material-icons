@@ -1,5 +1,6 @@
 <html lang='en'>
   <head>
+    <title>VSCode Material Icons showcase</title>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta name='color-scheme' content='dark light' />
@@ -8,17 +9,23 @@
       href='https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css'
     />
     <link rel='stylesheet' href='/styles/styles.css' />
-    <title>VSCode Material Icons showcase</title>
+    <script
+      src='https://unpkg.com/htmx.org@1.9.10'
+      integrity='sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC'
+      crossorigin='anonymous'
+    ></script>
   </head>
   <body>
     <header>
       <nav class='menu'>
         <ul>
           <li>
-            <a href='https://github.com/matejchalk/vscode-material-icons'>
-              VSCode Material Icons
-            </a>
-            showcase
+            <h1 class='page-title'>
+              <a href='https://github.com/matejchalk/vscode-material-icons'>
+                VSCode Material Icons
+              </a>
+              showcase
+            </h1>
           </li>
         </ul>
         <ul>
@@ -27,10 +34,17 @@
               class='search-input'
               type='search'
               placeholder='Search by icon name or file pattern'
+              name='q'
+              hx-get='/'
+              hx-trigger='keyup changed delay:500ms, search'
+              hx-sync='this:replace'
+              hx-target='#grid'
+              hx-indicator='#loading'
             />
           </li>
         </ul>
       </nav>
+      <progress id='loading' class='htmx-indicator'></progress>
     </header>
     <main>
       {{{body}}}

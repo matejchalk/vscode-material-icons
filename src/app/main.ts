@@ -18,7 +18,10 @@ app.set('views', path.join(dirname, 'views'));
 
 app.get('/', (req, res) => {
   const { q } = parseQueryParams(req.query);
-  res.render('home', { icons: searchIcons(q) });
+  res.render('home', {
+    icons: searchIcons(q),
+    ...(req.headers['hx-request'] && { layout: false }),
+  });
 });
 
 const port = 3000;
