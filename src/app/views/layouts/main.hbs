@@ -16,9 +16,7 @@
     ></script>
   </head>
   <body
-    hx-on::load="const input =
-      document.getElementById('search-input').value = new
-      URL(location).searchParams.get('q')"
+    hx-on::load="const input = document.getElementById('search-input').value = new URL(location).searchParams.get('q')"
   >
     <header>
       <nav class='menu'>
@@ -42,7 +40,7 @@
               hx-get='/'
               hx-trigger='keyup changed delay:500ms, search'
               hx-sync='this:replace'
-              hx-target='#grid'
+              hx-target='#search-results'
               hx-indicator='#loading'
               hx-on::after-request="const url = new URL(location); if (this.value)
       { url.searchParams.set('q', this.value) } else { url.searchParams.delete('q') };
