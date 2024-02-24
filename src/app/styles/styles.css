@@ -1,14 +1,14 @@
-.page-title {
+#page-title {
   font-size: 1.5rem;
   margin: 0;
 }
 
-.menu .search-input {
+#search-input {
   width: 500px;
   max-width: 50vw;
 }
 
-.search-input::placeholder {
+#search-input::placeholder {
   font-size: 0.9rem;
 }
 
@@ -16,7 +16,7 @@
   opacity: 0;
 }
 
-.grid {
+#grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
   column-gap: 20px;

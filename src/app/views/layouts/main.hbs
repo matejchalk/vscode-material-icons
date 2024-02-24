@@ -15,12 +15,16 @@
       crossorigin='anonymous'
     ></script>
   </head>
-  <body>
+  <body
+    hx-on::load="const input =
+      document.getElementById('search-input').value = new
+      URL(location).searchParams.get('q')"
+  >
     <header>
       <nav class='menu'>
         <ul>
           <li>
-            <h1 class='page-title'>
+            <h1 id='page-title'>
               <a href='https://github.com/matejchalk/vscode-material-icons'>
                 VSCode Material Icons
               </a>
@@ -31,7 +35,7 @@
         <ul>
           <li>
             <input
-              class='search-input'
+              id='search-input'
               type='search'
               placeholder='Search by icon name or file pattern'
               name='q'
@@ -40,6 +44,9 @@
               hx-sync='this:replace'
               hx-target='#grid'
               hx-indicator='#loading'
+              hx-on::after-request="const url = new URL(location); if (this.value)
+      { url.searchParams.set('q', this.value) } else { url.searchParams.delete('q') };
+      history.pushState({}, '', url);"
             />
           </li>
         </ul>
