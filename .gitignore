@@ -131,3 +131,7 @@ dist
 
 # temporary files
 tmp/
+
+# Vercel
+.vercel
+/api

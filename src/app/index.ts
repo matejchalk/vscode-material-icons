@@ -24,7 +24,4 @@ app.get('/', (req, res) => {
   });
 });
 
-const port = 3000;
-app.listen(port, () => {
-  console.info(`🚀 Server listening at http://localhost:${port}`);
-});
+export default app;
