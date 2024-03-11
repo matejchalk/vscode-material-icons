@@ -42,7 +42,6 @@
     "test:watch": "vitest watch",
     "fetch-icons": "node scripts/fetch-icons.js",
     "release": "release-it",
-    "build:app": "tsup --config tsup.vercel.config.ts",
     "serve": "tsx watch --clear-screen=false src/app/serve.ts"
   },
   "devDependencies": {

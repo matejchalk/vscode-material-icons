@@ -1,4 +1,4 @@
-import type { MaterialIcon } from '../../lib';
+import type { MaterialIcon } from '../../src';
 import { searchIcons } from './search';
 
 describe('search icons', () => {

@@ -2,8 +2,8 @@ import express from 'express';
 import { engine } from 'express-handlebars';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseQueryParams } from './utils/parse';
-import { searchIcons } from './utils/search';
+import { parseQueryParams } from './utils/parse.js';
+import { searchIcons } from './utils/search.js';
 
 const dirname = fileURLToPath(path.dirname(import.meta.url));
 

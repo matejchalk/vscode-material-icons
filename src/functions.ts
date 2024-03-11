@@ -1,11 +1,11 @@
-import iconMap from '../../generated/icon-map.json';
+import iconMap from '../generated/icon-map.json' assert { type: 'json' };
 import type { MaterialIcon, MaterialIconInfo } from './types';
 import {
   filenameFromPath,
   findKeysByValue,
   getIconNameForDirectoryName,
   getIconNameForFileName,
-} from './utils';
+} from './utils.js';
 
 export function isMaterialIconName(value: unknown): value is MaterialIcon {
   return typeof value === 'string' && value in iconMap.iconDefinitions;

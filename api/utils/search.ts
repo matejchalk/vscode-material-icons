@@ -4,7 +4,7 @@ import {
   MATERIAL_ICONS,
   type MaterialIcon,
   type MaterialIconInfo,
-} from '../../lib';
+} from '../../src/index.js';
 
 export function searchIcons(term: string | undefined): MaterialIcon[] {
   if (!term) {

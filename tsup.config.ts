@@ -3,6 +3,6 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
   platform: 'neutral',
   dts: true,
-  entry: ['src/lib/index.ts'],
+  entry: ['src/index.ts'],
   format: ['cjs', 'esm'],
 });
