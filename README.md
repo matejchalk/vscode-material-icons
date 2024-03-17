@@ -2,6 +2,8 @@
 
 **[VSCode Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) wrapper for applications to self-host icons and select icon based on file path.**
 
+For a full list of available icons, see [showcase](https://vscode-material-icons.onrender.com/).
+
 ## Setup
 
 Install `vscode-material-icons` with your package manager:
