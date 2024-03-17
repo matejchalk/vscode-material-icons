@@ -131,3 +131,6 @@ dist
 
 # temporary files
 tmp/
+
+# app output
+dist-app/

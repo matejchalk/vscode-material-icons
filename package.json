@@ -42,7 +42,9 @@
     "test:watch": "vitest watch",
     "fetch-icons": "node scripts/fetch-icons.js",
     "release": "release-it",
-    "serve": "tsx watch --clear-screen=false src/app/main.ts"
+    "app:serve": "tsx watch --clear-screen=false src/app/main.ts",
+    "app:build": "tsup --config tsup.config.app.ts",
+    "app:run": "node dist-app/main.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
