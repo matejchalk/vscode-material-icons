@@ -2,7 +2,7 @@
 
 **[VSCode Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) wrapper for applications to self-host icons and select icon based on file path.**
 
-For a full list of available icons, see [showcase](https://vscode-material-icons.onrender.com/).
+For a full list of available icons, see [showcase](https://vscodematerialicons-byr3l7cm.b4a.run/).
 
 ## Setup
 
