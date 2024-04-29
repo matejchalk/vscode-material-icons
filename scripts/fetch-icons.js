@@ -39,17 +39,16 @@ await exec('npm install', {
   stdio: 'inherit',
 });
 
-console.info('Copying icons');
-
-await copy(staticDirPath, iconsDirPath);
-await copy(join(vsCodeExtDirPath, 'icons'), iconsDirPath);
-
 console.info('Running `npm build`');
 
 await exec('npm run build', {
   cwd: vsCodeExtDirPath,
   stdio: 'inherit',
 });
+
+console.info('Copying icons');
+
+await copy(join(vsCodeExtDirPath, 'icons'), iconsDirPath);
 
 console.info('Copying icon mapping');
 
