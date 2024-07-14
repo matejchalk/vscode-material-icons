@@ -1,4 +1,4 @@
-import type iconMap from '../../generated/icon-map.json';
+import type iconMap from './generated/icon-map.json';
 
 export type IconDefinitionsKey = keyof (typeof iconMap)['iconDefinitions'];
 export type FileNamesKey = keyof (typeof iconMap)['fileNames'];
@@ -8,9 +8,9 @@ export type FileExtensionsKey = keyof (typeof iconMap)['fileExtensions'];
 export type MaterialIcon = IconDefinitionsKey;
 
 export type MaterialIconInfo = {
-  name: MaterialIcon;
-  fileExtensions?: string[];
-  fileNames?: string[];
-  folderNames?: string[];
-  folderNamesExpanded?: string[];
+	name: MaterialIcon;
+	fileExtensions?: string[];
+	fileNames?: string[];
+	folderNames?: string[];
+	folderNamesExpanded?: string[];
 };
