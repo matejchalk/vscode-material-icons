@@ -11,11 +11,18 @@ export function isMaterialIconName(value: unknown): value is MaterialIcon {
   return typeof value === 'string' && value in iconMap.iconDefinitions;
 }
 
+export function getIconFileByName(iconName: MaterialIcon): string {
+  return (
+    iconMap.iconDefinitions[iconName].iconPath.split('/').at(-1) ??
+    `${iconName}.svg`
+  );
+}
+
 export function getIconUrlByName(
   iconName: MaterialIcon,
   iconsUrl: string,
 ): string {
-  return `${iconsUrl}/${iconName.toString()}.svg`;
+  return `${iconsUrl}/${getIconFileByName(iconName)}`;
 }
 
 export function getIconUrlForFilePath(path: string, iconsUrl: string): string {

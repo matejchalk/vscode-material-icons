@@ -1,3 +1,4 @@
+import { getIconFileByName } from '../lib/functions.js';
 import { searchIcons } from './search.js';
 
 const imageModules = import.meta.glob('$lib/generated/icons/*.svg', {
@@ -11,7 +12,8 @@ export function load({ request }) {
   return {
     icons: searchIcons(term)
       .map((name) => {
-        const module = imageModules[`/src/lib/generated/icons/${name}.svg`];
+        const module =
+          imageModules[`/src/lib/generated/icons/${getIconFileByName(name)}`];
         if (
           typeof module === 'object' &&
           module !== null &&
