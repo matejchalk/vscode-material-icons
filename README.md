@@ -48,18 +48,18 @@ Use [copy-webpack-plugin](https://webpack.js.org/plugins/copy-webpack-plugin/) i
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-	// ...
-	plugins: [
-		// ...
-		new CopyPlugin({
-			patterns: [
-				{
-					from: 'node_modules/vscode-material-icons/generated/icons',
-					to: 'assets/material-icons'
-				}
-			]
-		})
-	]
+  // ...
+  plugins: [
+    // ...
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'node_modules/vscode-material-icons/generated/icons',
+          to: 'assets/material-icons',
+        },
+      ],
+    }),
+  ],
 };
 ```
 
@@ -72,24 +72,24 @@ Append to `assets` in `angular.json` (or `project.json` if using Nx):
 
 ```jsonc
 {
-	// ..
-	"targets": {
-		"build": {
-			"executor": "@angular-devkit/build-angular:browser",
-			"options": {
-				// ...
-				"assets": [
-					// ...
-					{
-						"glob": "**/*",
-						"input": "./node_modules/vscode-material-icons/generated/icons",
-						"output": "/assets/material-icons/"
-					}
-				]
-			}
-			// ...
-		}
-	}
+  // ..
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        // ...
+        "assets": [
+          // ...
+          {
+            "glob": "**/*",
+            "input": "./node_modules/vscode-material-icons/generated/icons",
+            "output": "/assets/material-icons/",
+          },
+        ],
+      },
+      // ...
+    },
+  },
 }
 ```
 
@@ -101,10 +101,10 @@ Use exported functions to get an icon name/URL from a file/folder path:
 
 ```ts
 import {
-	getIconForFilePath,
-	getIconUrlByName,
-	getIconUrlForFilePath,
-	type MaterialIcon
+  getIconForFilePath,
+  getIconUrlByName,
+  getIconUrlForFilePath,
+  type MaterialIcon,
 } from 'vscode-material-icons';
 
 // should match output path configured in bundler
@@ -123,14 +123,18 @@ const tsIconUrl: string = getIconUrlByName('typescript', ICONS_URL);
 It's also simple to validate icon names in a type-safe way:
 
 ```ts
-import { isMaterialIcon, MATERIAL_ICONS, type MaterialIcon } from 'vscode-material-icons';
+import {
+  isMaterialIcon,
+  MATERIAL_ICONS,
+  type MaterialIcon,
+} from 'vscode-material-icons';
 
 // example 1: use union type for autocomplete
 let icon: MaterialIcon;
 
 // example 2: validate icon name with type predicate function
 if (isMaterialIcon(value)) {
-	icon = value;
+  icon = value;
 }
 
 // example 3: integrate with schema validation library, e.g. Zod
