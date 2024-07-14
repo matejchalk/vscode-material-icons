@@ -146,6 +146,6 @@ icon = materialIconSchema.parse(value);
 
 - Install dependencies with `npm install`.
 - Run unit tests with `npm test`.
-- Build library with `npm run packaage`.
-- Re-fetch icons from VSCode extension with `npm run fetch-icons`.
+- Build library with `npm run package`.
+- Re-fetch icons from VSCode extension with `npm run fetch-icons` (requires Bun).
 - Release new version with `npm run release`.

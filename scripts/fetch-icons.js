@@ -30,16 +30,17 @@ await git.clone(
   vsCodeExtDirPath,
 );
 
-console.info('Running `npm install`');
+console.info('Running `bun install`');
 
-await exec('npm install', {
+await exec('bun install', {
   cwd: vsCodeExtDirPath,
   stdio: 'inherit',
 });
 
-console.info('Running `npm build`');
+console.info('Running `bun run generateJson`');
 
-await exec('npm run build', {
+await mkdir(join(vsCodeExtDirPath, 'dist'));
+await exec('bun run generateJson', {
   cwd: vsCodeExtDirPath,
   stdio: 'inherit',
 });
