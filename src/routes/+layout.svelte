@@ -3,8 +3,13 @@
 
   import { goto } from '$app/navigation';
   import { navigating, page } from '$app/stores';
+  interface Props {
+    children?: import('svelte').Snippet;
+  }
 
-  let term = $page.url.searchParams.get('q') ?? '';
+  let { children }: Props = $props();
+
+  let term = $state($page.url.searchParams.get('q') ?? '');
   let timer: number | undefined;
 
   function debouncedSearch(event: Event) {
@@ -36,8 +41,8 @@
             placeholder="Search by icon name or file pattern"
             name="q"
             bind:value={term}
-            on:keyup={debouncedSearch}
-            on:input={debouncedSearch}
+            onkeyup={debouncedSearch}
+            oninput={debouncedSearch}
           />
         </form>
       </li>
@@ -49,7 +54,7 @@
 </header>
 
 <main>
-  <slot />
+  {@render children?.()}
 </main>
 
 <style>
