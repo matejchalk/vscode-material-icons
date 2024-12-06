@@ -23,10 +23,12 @@ await rm(vsCodeExtDirPath, { recursive: true, force: true });
 await rm(outputDirPath, { recursive: true, force: true });
 await mkdir(iconsDirPath, { recursive: true });
 
-console.info('Cloning PKief/vscode-material-icon-theme GitHub repo');
+console.info(
+  'Cloning material-extensions/vscode-material-icon-theme GitHub repo',
+);
 
 await git.clone(
-  'git@github.com:PKief/vscode-material-icon-theme.git',
+  'git@github.com:material-extensions/vscode-material-icon-theme.git',
   vsCodeExtDirPath,
 );
 
