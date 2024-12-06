@@ -1,4 +1,4 @@
-import iconMap from './generated/icon-map.json';
+import iconMap from './generated/icon-map.json' with { type: 'json' };
 import type { MaterialIcon, MaterialIconInfo } from './types.js';
 import {
   filenameFromPath,
