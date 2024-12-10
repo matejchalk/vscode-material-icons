@@ -6,13 +6,21 @@ import {
 } from '$lib/index.js';
 import { matchSorter, type ValueGetterKey } from 'match-sorter';
 
-export function searchIcons(term: string | null): MaterialIcon[] {
+export function searchIcons(
+  term: string | null,
+  excludeFolders: boolean = false,
+): MaterialIcon[] {
+  const preFilteredData = excludeFolders
+    ? MATERIAL_ICONS.filter((iconName) => !/^folder-/.test(iconName))
+    : MATERIAL_ICONS;
+
   if (!term) {
-    return MATERIAL_ICONS;
+    return preFilteredData;
   }
+
   if (term.startsWith('.') || term.startsWith('*.')) {
     const extension = term.slice(term.indexOf('.') + 1);
-    return matchSorter(MATERIAL_ICONS, extension, {
+    return matchSorter(preFilteredData, extension, {
       keys: [
         {
           key: createKey('fileExtensions'),
@@ -21,7 +29,7 @@ export function searchIcons(term: string | null): MaterialIcon[] {
       ],
     });
   }
-  return matchSorter(MATERIAL_ICONS, term, {
+  return matchSorter(preFilteredData, term, {
     keys: [
       {
         key: createKey('name'),
@@ -35,10 +43,14 @@ export function searchIcons(term: string | null): MaterialIcon[] {
         key: createKey('fileNames'),
         threshold: matchSorter.rankings.STARTS_WITH,
       },
-      {
-        key: createKey('folderNames'),
-        threshold: matchSorter.rankings.STARTS_WITH,
-      },
+      ...(excludeFolders
+        ? []
+        : [
+            {
+              key: createKey('folderNames'),
+              threshold: matchSorter.rankings.STARTS_WITH,
+            },
+          ]),
     ],
   });
 }

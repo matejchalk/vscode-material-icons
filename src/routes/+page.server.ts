@@ -8,9 +8,12 @@ const imageModules = import.meta.glob('$lib/generated/icons/*.svg', {
 
 export function load({ request }) {
   const term = new URL(request.url).searchParams.get('q');
+  const excludeFolders = Boolean(
+    new URL(request.url).searchParams.get('excludeFolders'),
+  );
 
   return {
-    icons: searchIcons(term)
+    icons: searchIcons(term, excludeFolders)
       .map((name) => {
         const module =
           imageModules[`/src/lib/generated/icons/${getIconFileByName(name)}`];
