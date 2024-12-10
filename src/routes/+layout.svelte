@@ -10,13 +10,26 @@
   let { children }: Props = $props();
 
   let term = $state($page.url.searchParams.get('q') ?? '');
+  let excludeFolders = $state(
+    $page.url.searchParams.get('excludeFolders') === 'true',
+  );
   let timer: number | undefined;
 
   function debouncedSearch(event: Event) {
     event.preventDefault();
     clearTimeout(timer);
     timer = setTimeout(() => {
-      goto(`/?q=${term}`, { invalidateAll: true });
+      console.log(document.location.origin);
+      const url = new URL(document.location.origin);
+      if (term) {
+        url.searchParams.append('q', term);
+      }
+      if (excludeFolders) {
+        url.searchParams.append('excludeFolders', 'true');
+      }
+      goto(url.toString(), {
+        invalidateAll: true,
+      });
     }, 500);
   }
 </script>
@@ -44,6 +57,16 @@
             onkeyup={debouncedSearch}
             oninput={debouncedSearch}
           />
+          <label>
+            <input
+              type="checkbox"
+              name="excludeFolders"
+              bind:checked={excludeFolders}
+              onkeyup={debouncedSearch}
+              oninput={debouncedSearch}
+            />
+            Exclude folder variations icons
+          </label>
         </form>
       </li>
     </ul>
@@ -63,7 +86,7 @@
     margin: 0;
   }
 
-  input {
+  input[type='search'] {
     width: 500px;
     max-width: 50vw;
   }
