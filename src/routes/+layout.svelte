@@ -19,7 +19,6 @@
     event.preventDefault();
     clearTimeout(timer);
     timer = setTimeout(() => {
-      console.log(document.location.origin);
       const url = new URL(document.location.origin);
       if (term) {
         url.searchParams.append('q', term);
