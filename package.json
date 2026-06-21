@@ -31,7 +31,7 @@
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
     "release": "release-it",
-    "fetch-icons": "node scripts/fetch-icons.js"
+    "fetch-icons": "PUPPETEER_SKIP_DOWNLOAD=1 node scripts/fetch-icons.js"
   },
   "exports": {
     ".": {
